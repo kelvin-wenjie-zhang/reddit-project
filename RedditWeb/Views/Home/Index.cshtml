@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Simple Statistics for Subreddit";
+}
+
+<h1>Welcome to the Home Page for Simple Statistics for Subreddit</h1>
+
+@if (ViewBag.ShowAuthorizationInput)
+{
+    <form id="generateAuthorizationUrl" method="post" action="/Home/GenerateAuthorizationUrl">
+        <div style="margin-bottom: 1em">
+            <label for="clientId">Client Id: (must be an "installed app" type)</label>
+            <input type="text" id="clientId" name="clientId" style="width: 400px" />
+        </div>
+        <div>
+            <label for="redirectUrl">RedirectUrl: </label>
+            <input type="text" id="redirectUrl" name="redirectUrl" style="width: 600px" />
+        </div>
+        <br /><br />
+        <button type="submit">Generate Authorization Link</button>
+    </form>
+    @if (TempData["authorizationLink"] != null)
+    {
+        <div>
+            <p>Please click <a href="@TempData["authorizationLink"]">here</a> to generate the authorization code.</p>
+        </div>
+    }
+}
+
+@if (ViewBag.ShowAuthorizationInput == false)
+{
+    <form id="submitForm" method="post" action="/Home/SubmitForm">
+        <label for="name">Subreddit Name:</label>
+        <input type="text" id="name" name="name" /><br /><br />
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="responseContainer">
+        @if (TempData["mostUpvotePost"] != null && TempData["userWithMostPost"] != null)
+        {
+            <div>
+                <h2>Simple statistics for subreddit /r/@TempData["subreddit"]</h2>
+                <p>Data is refreshed every 20 seconds.</p>
+                <div id="currentTime"></div>
+                <div>
+                    <h3>Post with most upvotes:</h3>
+                    <div id="mostUpvotePost">
+                        @TempData["mostUpvotePost"]
+                    </div>
+                    <img src="@TempData["postUrl"]" alt="postUrl" width="300" height="300" />
+
+                    <br />
+
+                    <h3>User with most posts: </h3>
+                    <img src="@TempData["iconUrl"]" alt="iconUrl" width="100" height="100" />
+                    <div id="userWithMostPost">
+                        @TempData["userWithMostPost"]
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    <script>
+        function updateTimestamp() {
+            var timestampElement = document.getElementById("currentTime");
+            var now = new Date();
+            timestampElement.textContent = "Current Timestamp: " + now.toLocaleString();
+        }
+
+        function updateString() {
+            fetch("/Home/GetUpdatedResult")
+                .then(response => response.json())
+                .then(data => {
+                    var mostUpvotePost = document.getElementById("mostUpvotePost");
+                    mostUpvotePost.textContent = data.mostUpvotePost;
+
+                    var userWithMostPost = document.getElementById("userWithMostPost");
+                    userWithMostPost.textContent = data.userWithMostPost;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        updateTimestamp();
+        updateString();
+
+        setInterval(updateTimestamp, 1000);
+        setInterval(updateString, 20000);
+    </script>
+}
