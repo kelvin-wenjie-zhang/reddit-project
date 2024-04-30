@@ -12,16 +12,16 @@ Right-click RedditWeb project and Set As Stargup Project, then run the project. 
 
 ## Step 3:
 On the web page, copy the client id and redirect uri into the textbox, click "Generate Authorization Link". A new hypertext link would show up below, click it and direct you to the Reddit authorization page. Click "Allow".
-![Alt text](/1.png "")
+![Alt text](/images/1.png "")
 
-![Alt text](/2.png "")
+![Alt text](/images/2.png "")
 
-![Alt text](/3.png "")
+![Alt text](/images/3.png "")
 
 ## Step 4:
 The web would return back to the localhost:7251 with an input for subreddit name, type in the name such as "gaming"
-![Alt text](/4.png "")
+![Alt text](/images/4.png "")
 
 ## Step 5:
 It would show the posts with most upvotes and the user with most posts in the subreddit.
-![Alt text](/5.png "")
+![Alt text](/images/5.png "")
