@@ -2,7 +2,7 @@
 This is a simple ASP.NET app to show post with most upvotes and user with most post for a given subreddit.
 
 ## Prerequisite
-You need to have Reddit API access and create an application with "installed app" type that has no secret. After it is done, you should have the client id and redirect uri which would be used for the input in the web app.
+You need to have Reddit API access and create an application with "installed app" type that has no secret, and with redirect uri being "https://localhost:7251/authorize_callback". After it is done, you should have the client id and redirect uri which would be used for the input in the web app.
 
 ## Step 1:
 Open the RedditProject.sln solution in Visual Studio, and then restore Nuget pacakge and build the solution.
