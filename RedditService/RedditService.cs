@@ -58,17 +58,16 @@ namespace RedditService
             }
 		}
 
-		public Tuple<string, string> GetPostWithMostUpvotes(string subreddit)
+		public Tuple<string, string> GetPostWithMostUpvotes(string subredditName)
 		{
 			try
 			{
                 var redditClient = new RedditClient(_clientId, _refreshToken, "", _accessToken, _userAgent);
-                var subReddits = redditClient.GetSubreddits("popular");
-                var result = subReddits.Where(s => s.Name.Equals(subreddit, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
-                if (result != null)
-                {
-                    var topPost = result.Posts.Top.OrderByDescending(p => p.UpVotes).First();
-					return Tuple.Create(topPost.Title, (topPost as LinkPost)?.URL);
+				var subReddit = redditClient.Subreddit(subredditName);
+				if (subReddit != null)
+				{
+                    var topPost = subReddit.Posts.Top.OrderByDescending(p => p.UpVotes).First();
+                    return Tuple.Create(topPost.Title, (topPost as LinkPost)?.URL);
                 }
             }
 			catch(Exception e)
@@ -76,19 +75,18 @@ namespace RedditService
 				Console.WriteLine("Exception is thrown when finding post with most upvotes: " + e);
 			}
 
-            return Tuple.Create($"Cannot find the post with most upvotes in subreddit {subreddit}", "");
+            return Tuple.Create($"Cannot find the post with most upvotes in subreddit {subredditName}", "");
         }
 
-		public Tuple<string, string> GetUserWithMostPosts(string subreddit)
+		public Tuple<string, string> GetUserWithMostPosts(string subredditName)
 		{
             try
             {
                 var redditClient = new RedditClient(_clientId, _refreshToken, "", _accessToken, _userAgent);
-                var subReddits = redditClient.GetSubreddits("popular");
-                var result = subReddits.Where(s => s.Name.Equals(subreddit, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
-                if (result != null)
+                var subReddit = redditClient.Subreddit(subredditName);
+                if (subReddit != null)
                 {
-                    var userName = result.Posts.Top.Where(t => t.Author != "[deleted]").GroupBy(t => t.Author).OrderByDescending(p => p.Count()).FirstOrDefault().Key;
+                    var userName = subReddit.Posts.Top.Where(t => t.Author != "[deleted]").GroupBy(t => t.Author).OrderByDescending(p => p.Count()).FirstOrDefault().Key;
 					var iconUrl = redditClient.SearchUsers(new Reddit.Inputs.Search.SearchGetSearchInput(userName)).FirstOrDefault()?.About().IconImg;
 					return Tuple.Create(userName, iconUrl?.Split("?")[0]);
                 }
@@ -98,7 +96,7 @@ namespace RedditService
                 Console.WriteLine("Exception is thrown when finding user with most posts: " + e);
             }
 
-            return Tuple.Create($"Cannot find the the user with most posts in subreddit {subreddit}", "");
+            return Tuple.Create($"Cannot find the the user with most posts in subreddit {subredditName}", "");
         }
 	}
 }

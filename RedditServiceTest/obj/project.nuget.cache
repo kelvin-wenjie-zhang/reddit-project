@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UIVW4h5Io+yDbwr8n1EXB5cgpvrjnfzWbxBu0qGJmggHnqmoYMtx4tu1PU7tQXMKBFgzI651X8BCQ1jfuIYZWQ==",
+  "dgSpecHash": "WPfeoOx5vhNHhGlWn7J4483QKrBOSm45cwprWc40ab9qBcEWvPMKnHtIjP+NL4J+Pfv7OBtVH46imRHvrngviQ==",
   "success": true,
-  "projectFilePath": "/Users/wenjiezhang/Desktop/test/reddit-project/RedditServiceTest/RedditServiceTest.csproj",
+  "projectFilePath": "/Users/wenjiezhang/Desktop/reddit-project/RedditServiceTest/RedditServiceTest.csproj",
   "expectedPackageFiles": [
     "/Users/wenjiezhang/.nuget/packages/coverlet.collector/3.2.0/coverlet.collector.3.2.0.nupkg.sha512",
     "/Users/wenjiezhang/.nuget/packages/microsoft.aspnetcore.hosting/2.2.7/microsoft.aspnetcore.hosting.2.2.7.nupkg.sha512",

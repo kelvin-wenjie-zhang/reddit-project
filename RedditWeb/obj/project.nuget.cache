@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7yz/7bza4Q/byj1+x/NKt/lL6vjU9416xpIegzLBJaXmmlN4NMrBGDPPFDVBgCa28uf6e803EY9NbqLuH4RA5A==",
+  "dgSpecHash": "UvEoDaCn7LAp2GCTLG6yChGiIdf94whJr7IK60qL5XJkr2ZwUjdSvdpygfxYaxh/xEdW9It1NE0/t1TwHQBJDw==",
   "success": true,
-  "projectFilePath": "/Users/wenjiezhang/Desktop/test/reddit-project/RedditWeb/RedditWeb.csproj",
+  "projectFilePath": "/Users/wenjiezhang/Desktop/reddit-project/RedditWeb/RedditWeb.csproj",
   "expectedPackageFiles": [
     "/Users/wenjiezhang/.nuget/packages/microsoft.aspnetcore.hosting/2.2.7/microsoft.aspnetcore.hosting.2.2.7.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.hosting.abstractions/2.2.0/microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",

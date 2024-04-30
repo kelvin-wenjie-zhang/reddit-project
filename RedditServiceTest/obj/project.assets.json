@@ -4661,11 +4661,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/wenjiezhang/Desktop/test/reddit-project/RedditServiceTest/RedditServiceTest.csproj",
+      "projectUniqueName": "/Users/wenjiezhang/Desktop/reddit-project/RedditServiceTest/RedditServiceTest.csproj",
       "projectName": "RedditServiceTest",
-      "projectPath": "/Users/wenjiezhang/Desktop/test/reddit-project/RedditServiceTest/RedditServiceTest.csproj",
+      "projectPath": "/Users/wenjiezhang/Desktop/reddit-project/RedditServiceTest/RedditServiceTest.csproj",
       "packagesPath": "/Users/wenjiezhang/.nuget/packages/",
-      "outputPath": "/Users/wenjiezhang/Desktop/test/reddit-project/RedditServiceTest/obj/",
+      "outputPath": "/Users/wenjiezhang/Desktop/reddit-project/RedditServiceTest/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -4683,11 +4683,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/wenjiezhang/Desktop/test/reddit-project/RedditService/RedditService.csproj": {
-              "projectPath": "/Users/wenjiezhang/Desktop/test/reddit-project/RedditService/RedditService.csproj"
+            "/Users/wenjiezhang/Desktop/reddit-project/RedditService/RedditService.csproj": {
+              "projectPath": "/Users/wenjiezhang/Desktop/reddit-project/RedditService/RedditService.csproj"
             },
-            "/Users/wenjiezhang/Desktop/test/reddit-project/RedditWeb/RedditWeb.csproj": {
-              "projectPath": "/Users/wenjiezhang/Desktop/test/reddit-project/RedditWeb/RedditWeb.csproj"
+            "/Users/wenjiezhang/Desktop/reddit-project/RedditWeb/RedditWeb.csproj": {
+              "projectPath": "/Users/wenjiezhang/Desktop/reddit-project/RedditWeb/RedditWeb.csproj"
             }
           }
         }
